@@ -1,0 +1,49 @@
+
+
+<div class="card">
+    <h5 class="card-header">Listado de registro biologicos</h5>
+    
+    <div class="card-body">
+       
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                          <th scope="col">Especie</th>
+                          <th scope="col">Familia</th>
+                          <th scope="col">Nombre común</th>
+                          {% if edit %}
+                            <th scope="col">Acciones</th>
+                          {% endif %}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for reg in regbio %}
+
+                        <tr>
+                          <th>{{ reg.especie }}</th>
+                          <td>{{ reg.familia }}</td>
+                          <td>{{ reg.nombre_comun }}</td>
+                          <td>
+                                {% if edit %}
+                                    <div class="mt-2">
+                                        <a href="{% url 'regbiologicosapp:update' reg.pk %}" class = "btn btn-info mt-2">Editar</a>
+                                        <a href="{% url 'regbiologicosapp:delete' reg.pk %}" class = "btn btn-danger mt-2">Eliminar</a>
+                                    </div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% empty %}
+                            <p>No existen especies</p>
+                        {% endfor %}
+                      </tbody>
+                </table>
+              </div>
+       
+        
+
+        
+        
+    </div>
+    
+</div>

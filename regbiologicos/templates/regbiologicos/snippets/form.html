@@ -1,0 +1,101 @@
+<div class="mb-5">
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="form-group">
+                
+                    {{ field.label_tag }}
+                    {{ field }}
+                
+                
+
+                {% if field.errors %}
+                    {{ field.erros }}
+                {% endif %}
+
+            </div>
+        {% endfor %}
+
+        <input type=hidden id="proyecto" name=proyecto value="{{ is_proyecto }}">
+
+
+            <button type="submit" id="btEnviar" class="btn btn-primary">{{ message }}</button>
+    </form>
+    <div id="mensaje">
+
+    </div>
+
+</div>
+
+{% block javascript %}
+
+<script>
+
+    
+    // let btEnviar = document.getElementById("btEnviar");
+    // let isProyecto = document.getElementById("proyecto").value;
+
+    // btEnviar.addEventListener("click", enviarDatos);
+
+    // function enviarDatos(e){
+    //     arrayproyecto = {
+    //         'nombre': document.getElementById("id_nombre").value,
+    //         'descripcion': document.getElementById("id_descripcion").value,
+    //     }
+
+    //     if (isProyecto=='Si'){
+    //         e.preventDefault();
+
+    //         fetch("/proyecto", {
+    //       method: "post",
+    //       headers: {
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json'
+    //       },
+
+    //       //make sure to serialize your JSON body
+    //       body: JSON.stringify(arrayproyecto)
+    //     })
+    //     .then( (response) => { 
+    //       //do something awesome that makes the world a better place
+          
+    //       let mensaje = document.getElementById("mensaje");
+    //       mensaje.innerHTML = '<div class="alert alert-success" role="alert">   Registro ingresado con éxito </div>';
+    //       window.setTimeout(function() {
+    //             $(".alert").fadeTo(500, 0).slideUp(500, function(){
+    //                 $(this).remove(); 
+                    
+    //                 limpiarcampos();
+                   
+    //             });
+    //         }, 3000);
+          
+
+    //     }).catch(function(error) {
+    //       mensaje.innerHTML = '<div class="alert alert-danger" role="alert">   '+ error.message +'</div>';
+    //       });
+
+
+           
+    //     }// fin condición
+
+    //     function limpiarcampos(){
+    //         document.getElementById("id_nombre").value = '';
+    //         document.getElementById("id_descripcion").value = '';
+    //     }
+    // }
+
+    
+
+
+     
+
+
+
+
+</script>
+
+
+{% endblock %}

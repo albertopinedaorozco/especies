@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="col">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="h4">
+                ¿ Estas seguro de eliminar la ecorregión <strong>{{ object }}</strong>.  ?
+                
+            </div>
+
+            <input type="submit" class="btn btn-danger"  value="Eliminar">
+            <a href="{% url 'regbiologicosapp:ecorregiones' %}">Cancelar</a>
+        </form>
+    </div>
+
+
+
+
+{% endblock content %}

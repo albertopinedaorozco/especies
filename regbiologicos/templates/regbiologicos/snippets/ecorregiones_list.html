@@ -1,0 +1,39 @@
+<div class="card">
+    <h5 class="card-header">Listado de Ecorregiones</h5>
+    
+    <div class="card-body">
+       
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                          <th scope="col">Ecorregión</th>
+                           
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for e in ecorregiones %}
+
+                        <tr>
+                          <td>{{ e.nombre }}</td>
+                            <td>
+                                <div class="mt-2">
+                                        <a href="{% url 'regbiologicosapp:update_ecorregion' e.pk %}" class = "btn btn-info mt-2">Editar</a>
+                                        <a href="{% url 'regbiologicosapp:delete_ecorregion' e.pk %}" class = "btn btn-danger mt-2">Eliminar</a>
+                                </div>
+                          </td>
+                        </tr>
+                        {% empty %}
+                            <p>No existen ecorregiones registradas</p>
+                        {% endfor %}
+                      </tbody>
+                </table>
+              </div>
+       
+        
+
+        
+        
+    </div>
+    
+</div>

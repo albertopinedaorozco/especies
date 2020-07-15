@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="col">
+    <div>
+        <h6><a href="{% url 'regbiologicosapp:export_proyectos_csv_list' %}"> Exportar proyectos a archivo CSV</a></h6>
+    </div>
+
+    <div class="row">
+        
+        <div class="col-md-4">
+            <div class="h4">
+                Formulario registro de proyectos
+            </div>
+            <div class="mt-2">
+                {% include 'regbiologicos/snippets/form.html'  with message='Guardar' is_proyecto='Si' %}
+            </div>
+            
+        </div>
+        <div class="col-md-8">
+                     
+            <div class="mt-2">
+                    {% include 'regbiologicos/snippets/proyectos_list.html' with edit=True %}
+            </div>
+        
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}
+

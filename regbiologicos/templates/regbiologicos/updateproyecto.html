@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <div class="col">
+        <div class="h3">
+            Editar Proyecto <small><a href="{% url 'regbiologicosapp:proyectos' %}">Cancelar edición</a></small>
+        </div>
+
+        {% include 'regbiologicos/snippets/form.html' with message='Actualizar' %}
+    </div>
+   
+
+
+{% endblock content %}
